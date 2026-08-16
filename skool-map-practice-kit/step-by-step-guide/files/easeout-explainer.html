@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>What is an easing?</title>
+<style>
+  :root { --bg:#0e1a2b; --panel:#12233a; --ink:#eceae1; --muted:#9db2c7; --red:#e8201c; --accent:#ffd23a; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+         display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; padding:32px; }
+  h1 { font-size:26px; font-weight:600; margin:0; letter-spacing:0.3px; }
+  .sub { font-size:15px; color:var(--muted); margin:-12px 0 0; }
+  .row { display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
+  .panel { background:var(--panel); border-radius:16px; padding:18px 18px 14px; width:min(272px,90vw);
+           display:flex; flex-direction:column; align-items:center; gap:10px; box-shadow:0 10px 30px rgba(0,0,0,0.35); }
+  .panel h2 { font-size:17px; font-weight:600; margin:0; }
+  .panel .tag { font-size:12.5px; color:var(--muted); margin:-4px 0 0; text-align:center; min-height:32px; }
+  .stage { position:relative; width:220px; height:320px; }
+  .hole { position:absolute; left:50%; bottom:16px; width:130px; height:130px; border-radius:50%;
+          background:var(--red); transform:translateX(-50%); box-shadow:0 0 26px rgba(232,32,28,0.55); }
+  /* clip box bottom sits low on the circle = the hole line; Trump paints OVER the circle */
+  .clip { position:absolute; left:50%; bottom:46px; transform:translateX(-50%); overflow:hidden; }
+  .clip img { position:absolute; left:50%; bottom:0; object-fit:contain;
+              transform:translateX(-50%) translateY(100%); filter:grayscale(1) contrast(1.05); }
+  svg.curve { display:block; }
+  .controls { display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:center; }
+  button { font:inherit; font-size:15px; padding:9px 20px; border-radius:10px; border:1px solid rgba(255,255,255,0.25);
+           background:transparent; color:var(--ink); cursor:pointer; }
+  button:hover { background:rgba(255,255,255,0.08); }
+  button.mini { font-size:13.5px; padding:6px 18px; border-radius:8px; }
+  input[type=range] { width:min(420px,70vw); accent-color:var(--accent); }
+  .lbl { font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; min-width:74px; }
+</style>
+</head>
+<body>
+  <h1>Same move. Four easings.</h1>
+  <p class="sub">How fast the motion happens over time — that's all an easing is.</p>
+
+  <div class="row" id="row"></div>
+
+  <div class="controls">
+    <button id="play">▶ Play all</button>
+    <input type="range" id="scrub" min="0" max="1000" value="0"/>
+    <span class="lbl" id="pct">t = 0%</span>
+  </div>
+  <div class="controls">
+    <span class="lbl" style="min-width:auto;">Trump size</span>
+    <input type="range" id="size" min="80" max="200" value="130"/>
+    <span class="lbl" id="sizeLbl">1.30×</span>
+  </div>
+
+<script>
+(function(){
+  const TRUMP_SRC = 'media/trump2.png';
+  const EASINGS = [
+    { key:'linear', name:'Linear', tag:'constant speed — robotic', fn: p => p },
+    { key:'inout', name:'easeInOut', tag:'gentle start AND stop — our camera moves', fn: p => p*p*(3-2*p) },
+    { key:'out', name:'easeOut', tag:'fast start, gentle settle — Trump’s rise', fn: p => 1 - Math.pow(1-p,3) },
+    { key:'back', name:'easeBack', tag:'overshoots — the springy pops (circle, flags)', fn: p => { const c1=1.70158, c3=c1+1; return 1 + c3*Math.pow(p-1,3) + c1*Math.pow(p-1,2); } },
+  ];
+  const EMERGE = 0.72;               // how much of Trump surfaces
+  const W=220, H=110, PAD=16;        // curve plot
+  const DUR=1600;
+  const row = document.getElementById('row');
+
+  const demos = EASINGS.map(e => {
+    const panel = document.createElement('div'); panel.className='panel';
+    panel.innerHTML = `
+      <h2>${e.name}</h2><div class="tag">${e.tag}</div>
+      <div class="stage">
+        <div class="hole"></div>
+        <div class="clip"><img src="${TRUMP_SRC}" alt=""/></div>
+      </div>
+      <svg class="curve" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"></svg>
+      <button class="mini">▶ Play</button>`;
+    row.appendChild(panel);
+    const svg = panel.querySelector('svg');
+    // axes
+    const ax = document.createElementNS('http://www.w3.org/2000/svg','path');
+    ax.setAttribute('d',`M ${PAD} ${PAD*0.6} L ${PAD} ${H-PAD} L ${W-PAD*0.4} ${H-PAD}`);
+    ax.setAttribute('stroke','rgba(255,255,255,0.25)'); ax.setAttribute('fill','none'); svg.appendChild(ax);
+    // curve
+    let d='';
+    for(let i=0;i<=100;i++){ const p=i/100, v=e.fn(p);
+      const x=PAD+p*(W-PAD*1.4), y=(H-PAD)-v*(H-PAD*1.6);
+      d+=(i?' L ':'M ')+x.toFixed(1)+' '+y.toFixed(1); }
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d',d); path.setAttribute('fill','none');
+    path.setAttribute('stroke','#ffd23a'); path.setAttribute('stroke-width','2.5'); svg.appendChild(path);
+    // moving dot
+    const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    dot.setAttribute('r','5'); dot.setAttribute('fill','#fff'); svg.appendChild(dot);
+
+    const demo = { e, clip: panel.querySelector('.clip'), img: panel.querySelector('.clip img'), dot, raf:null };
+    panel.querySelector('button.mini').addEventListener('click', () => playOne(demo));
+    return demo;
+  });
+
+  const scrub=document.getElementById('scrub'), pct=document.getElementById('pct'), playBtn=document.getElementById('play');
+  const sizeCtl=document.getElementById('size'), sizeLbl=document.getElementById('sizeLbl');
+  const BASE=170; // px at 1.0x
+  let cur=0;
+
+  function applySize(){
+    const mult=sizeCtl.value/100;
+    const s=Math.round(BASE*mult);
+    demos.forEach(({clip,img})=>{
+      clip.style.width=s+'px';
+      clip.style.height=Math.round(s*1.18)+'px'; // headroom for the easeBack overshoot
+      img.style.width=s+'px';
+      img.style.height=s+'px';
+    });
+    sizeLbl.textContent=mult.toFixed(2)+'×';
+  }
+
+  function renderDemo(demo, p){
+    const v=demo.e.fn(p);
+    demo.img.style.transform=`translateX(-50%) translateY(${(1-v*EMERGE)*100}%)`;
+    demo.dot.setAttribute('cx',(PAD+p*(W-PAD*1.4)).toFixed(1));
+    demo.dot.setAttribute('cy',((H-PAD)-v*(H-PAD*1.6)).toFixed(1));
+  }
+  function render(p){
+    cur=p;
+    demos.forEach(d=>renderDemo(d,p));
+    scrub.value=Math.round(p*1000); pct.textContent=`t = ${Math.round(p*100)}%`;
+  }
+
+  function stopAll(){ demos.forEach(d=>{ if(d.raf) cancelAnimationFrame(d.raf); d.raf=null; }); }
+
+  // play ONE panel (the others stay parked wherever they are)
+  function playOne(demo){
+    if(demo.raf) cancelAnimationFrame(demo.raf);
+    const start=performance.now();
+    const step=(now)=>{ const p=Math.min(1,(now-start)/DUR); renderDemo(demo,p); if(p<1) demo.raf=requestAnimationFrame(step); else demo.raf=null; };
+    demo.raf=requestAnimationFrame(step);
+  }
+
+  // play ALL panels together
+  function playAll(){
+    stopAll();
+    const start=performance.now();
+    const demo0=demos[0];
+    const step=(now)=>{ const p=Math.min(1,(now-start)/DUR); render(p); if(p<1) demo0.raf=requestAnimationFrame(step); else demo0.raf=null; };
+    demo0.raf=requestAnimationFrame(step);
+  }
+
+  playBtn.addEventListener('click',playAll);
+  scrub.addEventListener('input',()=>{ stopAll(); render(scrub.value/1000); });
+  sizeCtl.addEventListener('input',()=>{ applySize(); render(cur); });
+  applySize(); render(0); setTimeout(playAll,500);
+})();
+</script>
+</body>
+</html>

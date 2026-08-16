@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Keying the explosion: screen blend</title>
+<style>
+  :root { --bg:#0e1a2b; --panel:#12233a; --ink:#eceae1; --muted:#9db2c7; --accent:#ffd23a; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+         display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; padding:32px; }
+  h1 { font-size:26px; font-weight:600; margin:0; letter-spacing:0.3px; }
+  .sub { font-size:15px; color:var(--muted); margin:-12px 0 0; }
+  .row { display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
+  .panel { background:var(--panel); border-radius:16px; padding:18px 18px 14px; width:min(340px,92vw);
+           display:flex; flex-direction:column; align-items:center; gap:10px; box-shadow:0 10px 30px rgba(0,0,0,0.35); }
+  .panel h2 { font-size:17px; font-weight:600; margin:0; }
+  .panel .tag { font-size:12.5px; color:var(--muted); margin:-4px 0 0; text-align:center; min-height:18px; }
+  .stage { position:relative; width:300px; height:169px; border-radius:10px; overflow:hidden; background:#000; }
+  .stage img.map { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .stage video { position:absolute; display:block; }
+  .stage video.full { inset:0; width:100%; height:100%; object-fit:cover; }
+  .stage video.boom { left:50%; top:50%; width:62%; transform:translate(-50%,-50%); }
+  .controls { display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center; }
+  button { font:inherit; font-size:15px; padding:9px 20px; border-radius:10px; border:1px solid rgba(255,255,255,0.25);
+           background:transparent; color:var(--ink); cursor:pointer; }
+  button:hover { background:rgba(255,255,255,0.08); }
+  select { font:inherit; font-size:14px; padding:7px 10px; border-radius:8px; background:#0b1626; color:var(--ink);
+           border:1px solid rgba(255,255,255,0.25); }
+  .lbl { font-size:13px; color:var(--muted); }
+  .foot { font-size:13.5px; color:var(--muted); max-width:760px; text-align:center; line-height:1.55; }
+  .foot b { color:var(--accent); font-weight:600; }
+</style>
+</head>
+<body>
+  <h1>The explosion is on a black background. So how does it land on the map?</h1>
+  <p class="sub">No masking, no rotoscoping. One CSS line: a blend mode.</p>
+
+  <div class="row">
+    <div class="panel">
+      <h2>1 · The asset</h2>
+      <div class="tag">what we actually downloaded</div>
+      <div class="stage">
+        <video class="full" src="media/vfx.mp4" muted loop autoplay playsinline></video>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>2 · Pasted on the map</h2>
+      <div class="tag">normal blend — the black box problem</div>
+      <div class="stage">
+        <img class="map" src="media/s2_iran_flag.png" alt=""/>
+        <video class="boom" src="media/vfx.mp4" muted loop autoplay playsinline></video>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>3 · Keyed</h2>
+      <div class="tag">same video — blend mode does the work</div>
+      <div class="stage">
+        <img class="map" src="media/s2_iran_flag.png" alt=""/>
+        <video id="keyed" class="boom" style="mix-blend-mode:screen"
+               src="media/vfx.mp4" muted loop autoplay playsinline></video>
+      </div>
+      <div class="controls">
+        <span class="lbl">blend:</span>
+        <select id="blend">
+          <option value="screen" selected>screen (what we used)</option>
+          <option value="lighten">lighten</option>
+          <option value="overlay">overlay</option>
+          <option value="soft-light">soft-light</option>
+          <option value="normal">normal (off)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="replay">↻ Replay all (synced)</button>
+  </div>
+
+  <p class="foot"><b>Screen blend</b> can only make pixels brighter: it adds the top layer's light to whatever is underneath.
+  Pure black has no light to add, so it vanishes — and the fireball, which is nearly white, punches straight through.
+  That's why explosion, fire, and grain packs ship on black backgrounds.</p>
+
+<script>
+  const vids=[...document.querySelectorAll('video')];
+  document.getElementById('replay').addEventListener('click',()=>{ vids.forEach(v=>{ v.currentTime=0; v.play(); }); });
+  document.getElementById('blend').addEventListener('change',(e)=>{ document.getElementById('keyed').style.mixBlendMode=e.target.value; });
+</script>
+</body>
+</html>
