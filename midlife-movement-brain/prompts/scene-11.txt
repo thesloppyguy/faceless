@@ -1,0 +1,35 @@
+# Scene 11 — Alzheimer's stake
+
+**Result:** Snap desk props away. Flat US silhouette lands midground. People-dot counter builds in three posterize jumps to `6.7M`. Sober public-health weight, not scare imagery.
+
+**Duration:** ~4.0s  
+**VO:** Alzheimer's already affects six point seven million people in America.  
+**Storyboard beat:** body-9  
+**Starts on:** Scene 10 end, then snap to map + counter  
+**Ends on:** US silhouette + `6.7M`. Scene 12 jumps to city caveat.
+
+## Actions (in order)
+
+1. Snap-cut threshold/brain out (plain paper or desk under map).
+2. Layer-land US silhouette.
+3. Counter jumps: low → mid → `6.7M`.
+4. Hold.
+
+## Assets
+
+- `BG-DESK` or plain paper underlay
+- US silhouette (`prop-us-map.png`)
+- Counter type `6.7M`
+- Optional people-dot stack
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `mapScale` / `mapY`
+- `counterValues` (three steps)
+- `counterStepFrames`
+- map fill color / opacity
+
+## Continuity out
+
+Last frame = map + `6.7M` locked.

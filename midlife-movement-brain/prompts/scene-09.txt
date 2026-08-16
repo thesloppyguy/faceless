@@ -1,0 +1,37 @@
+# Scene 09 — White adults: glucose
+
+**Result:** Snap-cut from walk panel to glucose-panel language filling the frame. `PROP-GLUCOSE` enlarges. Meter needle steps into a green zone. Caption `FASTING GLUCOSE`. Parallel lever beat.
+
+**Duration:** ~4.0s  
+**VO:** For non-Hispanic white adults, fasting glucose was the standout.  
+**Storyboard beat:** body-7  
+**Starts on:** Scene 08 end, then snap to glucose/meter  
+**Ends on:** large glucose + needle in green + `FASTING GLUCOSE`. Scene 10 replaces meter with threshold card.
+
+## Actions (in order)
+
+1. Snap-cut walk/sit/caption out.
+2. Land meter face + enlarged `PROP-GLUCOSE`.
+3. Step needle into green zone (2–3 steps).
+4. Land `FASTING GLUCOSE` caption.
+5. Hold.
+
+## Assets
+
+- `BG-DESK`
+- Meter face
+- `PROP-GLUCOSE`
+- Type: `FASTING GLUCOSE`
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `glucoseScale`
+- `needleAngles` (start/mid/end)
+- `needleStepFrames`
+- `greenZoneStart` / `greenZoneEnd`
+- caption size / Y
+
+## Continuity out
+
+Last frame = desk + meter + glucose + needle in green + caption.

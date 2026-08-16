@@ -1,0 +1,38 @@
+# Scene 04 — Two groups, mean age
+
+**Result:** Snap city and `402` away. `BG-DESK` returns. Two equal vertical panels wipe in (left Hispanic / Mexican American, right non-Hispanic white). Faceless silhouette stacks land in each. Badges `HALF` / `HALF`. Age badge `~58` pins bottom center last.
+
+**Duration:** ~4.5s  
+**VO:** Half Hispanic, half non-Hispanic white. Mean age: almost fifty eight.  
+**Storyboard beat:** body-2  
+**Starts on:** Scene 03 end, then snap to desk + split  
+**Ends on:** balanced split + both `HALF` badges + `~58`. Scene 05 replaces panels with clipboard.
+
+## Actions (in order)
+
+1. Snap-cut city/`402`/timeline out; restore `BG-DESK`.
+2. Split wipe in two steps (left panel, then right).
+3. Land silhouette stacks (faceless).
+4. Stamp `HALF` on each panel.
+5. Land `~58` badge bottom center.
+6. Hold.
+
+## Assets
+
+- `BG-DESK`
+- Two panel plates
+- Faceless silhouette stacks (simple cutouts)
+- Type: `HALF`, `HALF`, `~58`
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `splitStepFrames`
+- `panelGap`
+- `silhouetteScale`
+- `ageBadgeY`
+- label copy / size
+
+## Continuity out
+
+Last frame = desk + two panels + silhouettes + `HALF`/`HALF` + `~58`.

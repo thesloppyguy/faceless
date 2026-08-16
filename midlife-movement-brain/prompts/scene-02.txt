@@ -1,0 +1,35 @@
+# Scene 02 — Decades later
+
+**Result:** Same desk still as Scene 01 end. A calendar strip jump-replaces above the arrow: `NOW` → `+10` → `+20` → `+30`. On the final jump, brain opacity drops one notch and a stamped X sits over the brain. Heart stays sharp. Mild unease, not horror.
+
+**Duration:** ~4.0s  
+**VO:** Not next year. Decades later, when thinking starts to fade.  
+**Storyboard beat:** intro-2  
+**Starts on:** exact Scene 01 end frame (heart, dashed arrow mid-span, faded brain)  
+**Ends on:** calendar showing `+30`, dimmer brain with X stamp, heart sharp. Scene 03 clears these props.
+
+## Actions (in order)
+
+1. Hold Scene 01 still for 1–2 frames (continuity lock).
+2. Snap calendar strip into midground with `NOW`.
+3. Jump-replace cards: `+10`, then `+20`, then `+30` (no dissolve).
+4. On `+30`, step brain opacity down; stamp X over brain.
+5. Hold.
+
+## Assets
+
+- Persist: `BG-DESK`, `PROP-HEART`, `PROP-BRAIN`, dashed arrow
+- Type cards: `NOW`, `+10`, `+20`, `+30` (text OK)
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `calendarY`
+- `cardHoldFrames` (default 12)
+- `brainDimOpacity` (default 0.45)
+- `crossOpacity` / `crossStroke` / `crossScale` / `crossColor`
+- type size / tracking for calendar cards
+
+## Continuity out
+
+Last frame = desk + heart + arrow + dim brain + X + `+30` card.

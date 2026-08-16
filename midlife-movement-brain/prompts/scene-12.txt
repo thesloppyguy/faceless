@@ -1,0 +1,36 @@
+# Scene 12 — One city caveat
+
+**Result:** Jump-replace map with small `BG-CITY`. Stamp `ONE CITY`, then `ONE COHORT`. Crossed stamp over a generic cure-all pill/bottle. Humility: not a universal prescription.
+
+**Duration:** ~4.0s  
+**VO:** This is one city, one cohort. Not a universal prescription.  
+**Storyboard beat:** outro-1  
+**Starts on:** Scene 11 end, then city + stamps  
+**Ends on:** city + both stamps + crossed cure-all. Scene 13 returns to desk heart/brain.
+
+## Actions (in order)
+
+1. Jump-replace map/counter with `BG-CITY`.
+2. Stamp `ONE CITY`.
+3. Stamp `ONE COHORT`.
+4. Land cure-all icon; stamp red X / cross over it.
+5. Hold.
+
+## Assets
+
+- `BG-CITY`
+- Cure-all icon
+- Type: `ONE CITY`, `ONE COHORT`
+- Cross / X stamp
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `stampIntervalFrames`
+- `cityScale` (small)
+- `crossAngle` / `crossScale`
+- stamp settle amount
+
+## Continuity out
+
+Last frame = city + caveat stamps + crossed cure-all.

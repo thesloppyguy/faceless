@@ -1,0 +1,36 @@
+# Scene 08 — Hispanic: any movement
+
+**Result:** Left panel fills the frame; right panel clears. Sit/chair icon greys out behind. `PROP-WALK` advances in three stepped positions. Caption card `ANY MOVEMENT`. Accessible win: not elite training.
+
+**Duration:** ~4.5s  
+**VO:** For Hispanic adults, especially Mexican Americans, any movement beat sitting.  
+**Storyboard beat:** body-6  
+**Starts on:** Scene 07 end, then jump to left-panel hero  
+**Ends on:** walk mid-step, sit greyed, `ANY MOVEMENT` visible. Scene 09 snaps to glucose panel.
+
+## Actions (in order)
+
+1. Jump-replace: expand left panel full; remove right panel, `≠`, glucose.
+2. Place sit icon midground; dim it.
+3. Step `PROP-WALK` position 1 → 2 → 3.
+4. Land `ANY MOVEMENT` caption card.
+5. Hold.
+
+## Assets
+
+- `BG-DESK`
+- Sit icon (`prop-sit.png`)
+- `PROP-WALK`
+- Type: `ANY MOVEMENT`
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `walkStepFrames`
+- `sitOpacity`
+- `captionY` / caption size
+- walk scale
+
+## Continuity out
+
+Last frame = full left-panel language + mid-step walk + grey sit + `ANY MOVEMENT`.

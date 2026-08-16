@@ -1,0 +1,36 @@
+# Scene 06 — Move + sugar, slower decline
+
+**Result:** Snap clipboard and quiz cards away. `PROP-WALK` lands left; `PROP-GLUCOSE` lands right. Between them a steep grey decline slope flattens in two posterize steps into a gentler slope. Hopeful mechanism without captions.
+
+**Duration:** ~4.0s  
+**VO:** Move more, keep blood sugar in check, and decline ran slower.  
+**Storyboard beat:** body-4  
+**Starts on:** Scene 05 end, then snap to walk + glucose + steep slope  
+**Ends on:** walk left, glucose right, shallow slope between. Scene 07 match-cuts into split rings.
+
+## Actions (in order)
+
+1. Snap-cut clipboard/cards out.
+2. Layer-land `PROP-WALK` left, `PROP-GLUCOSE` right.
+3. Show steep decline slope midground.
+4. Step slope to medium, then to shallow.
+5. Hold.
+
+## Assets
+
+- `BG-DESK`
+- `PROP-WALK`
+- `PROP-GLUCOSE`
+- Decline slope graphic (SVG/path OK)
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `walkX` / `glucoseX`
+- `slopeAngleStart` / `slopeAngleMid` / `slopeAngleEnd`
+- `slopeStepFrames`
+- icon scales
+
+## Continuity out
+
+Last frame = desk + walk + glucose + shallow slope.

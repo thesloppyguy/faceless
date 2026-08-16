@@ -1,0 +1,34 @@
+# Scene 13 — Heart work is brain work
+
+**Result:** Snap city stamps away. `BG-DESK` returns. `PROP-HEART` and `PROP-BRAIN` land equal size. The link between them is solid (not dashed). No caption. Thesis lock.
+
+**Duration:** ~3.5s  
+**VO:** The through line: midlife heart work is also brain work.  
+**Storyboard beat:** outro-2  
+**Starts on:** Scene 12 end, then desk + equal icons  
+**Ends on:** equal heart + brain + solid link. Scene 14 adds walk + tag.
+
+## Actions (in order)
+
+1. Snap-cut city/stamps/cure-all out; restore `BG-DESK`.
+2. Layer-land heart and brain equal scale, left and right.
+3. Place dashed link, then jump-replace to solid link bar (one step).
+4. Hold.
+
+## Assets
+
+- `BG-DESK`
+- `PROP-HEART`, `PROP-BRAIN`
+- Link bar (dashed then solid)
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `iconScale` (shared)
+- `heartX` / `brainX`
+- `linkY` / `linkThickness`
+- `solidReplaceFrame`
+
+## Continuity out
+
+Last frame = desk + equal heart/brain + solid link.

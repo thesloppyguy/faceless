@@ -1,0 +1,40 @@
+# Scene 01 — Heart now, brain later
+
+**Result:** Warm taupe paper desk fills the vertical frame. A cardboard red heart cutout lands hard left. A dashed arrow advances toward the right in three discrete steps. A smaller, slightly faded brain cutout pops in on the right. No captions. Stop-motion / posterize judder on every move. Vintage clinic grade.
+
+**Duration:** ~4.0s (120 frames @ 30fps)  
+**VO:** What you do for your heart in midlife may shape your brain later.  
+**Storyboard beat:** intro-1  
+**Starts on:** empty `BG-DESK` (film open)  
+**Ends on:** heart left bright, dashed arrow mid-span after 3 steps, brain right smaller/faded. Scene 02 must open on this exact still.
+
+## Actions (in order)
+
+1. Hold empty desk for a short beat.
+2. Layer-land `PROP-HEART` left with one judder settle.
+3. Step dashed arrow segment 1, then 2, then 3 (posterize, no ease glide).
+4. Pop `PROP-BRAIN` right, smaller and lower opacity than the heart.
+5. Hold end still through VO tail.
+
+## Assets
+
+- `BG-DESK` (`bg-desk.png`)
+- `PROP-HEART` (`prop-heart.png`)
+- `PROP-BRAIN` (`prop-brain.png`)
+- Dashed arrow (SVG or drawn segments OK)
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `emptyHoldFrames` (default 12)
+- `heartLandFrame` (default 12)
+- `arrowStepFrames` (default 10 each)
+- `brainPopFrame` (default 55)
+- `heartScale` / `brainScale` / `brainOpacity`
+- `heartX` / `brainX` / `arrowY`
+- `posterizeSteps` (default 4)
+- colors: desk tint, heart red, brain grey-pink
+
+## Continuity out
+
+Last frame = heart + mid-span dashed arrow + faded brain on desk. No calendar yet.

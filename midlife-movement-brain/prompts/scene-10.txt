@@ -1,0 +1,34 @@
+# Scene 10 — ≤ 126
+
+**Result:** Jump-replace meter with a large threshold card `≤ 126` and small `mg/dL` under it. Brain cutout returns beside the number and brightens one notch. Concrete, memorable threshold.
+
+**Duration:** ~4.0s  
+**VO:** A reading of one twenty six or lower tracked with slower fade.  
+**Storyboard beat:** body-8  
+**Starts on:** Scene 09 end, then replace meter with threshold  
+**Ends on:** big `≤ 126` / `mg/dL` + steadier brain. Scene 11 clears to US map.
+
+## Actions (in order)
+
+1. Hold Scene 09 still 1 frame.
+2. Jump-replace meter/caption with threshold card slam center.
+3. One settle judder on the number.
+4. Layer-land `PROP-BRAIN` beside number; step opacity up one notch.
+5. Hold.
+
+## Assets
+
+- `BG-DESK`
+- `PROP-BRAIN`
+- Type: `≤ 126`, `mg/dL`
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `thresholdScale` / `thresholdSettle`
+- `brainX` / `brainOpacityStart` / `brainOpacityEnd`
+- type hierarchy (`≤ 126` vs `mg/dL`)
+
+## Continuity out
+
+Last frame = desk + `≤ 126` + `mg/dL` + brighter brain.

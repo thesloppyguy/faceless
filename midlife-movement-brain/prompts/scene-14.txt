@@ -1,0 +1,34 @@
+# Scene 14 — A little movement now
+
+**Result:** Hold the linked heart/brain still. `PROP-WALK` steps once into frame beside them. Small tag `YEARS LATER` under the brain. Final held still for the reel out. Soft close, actionable without preaching.
+
+**Duration:** ~3.5s  
+**VO:** A little movement now may pay off years later.  
+**Storyboard beat:** outro-3  
+**Starts on:** exact Scene 13 end frame  
+**Ends on:** final still — walk + linked heart/brain + `YEARS LATER` (reel end).
+
+## Actions (in order)
+
+1. Continuity hold on Scene 13 still (2–4 frames).
+2. Layer-land `PROP-WALK` with one stepped settle.
+3. Pop `YEARS LATER` tag under brain.
+4. Hold to end (no fade out required; cut on still).
+
+## Assets
+
+- Persist: `BG-DESK`, `PROP-HEART`, `PROP-BRAIN`, solid link
+- `PROP-WALK`
+- Type: `YEARS LATER`
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `walkLandFrame` / `walkX` / `walkScale`
+- `tagY` / tag size
+- `endHoldFrames`
+- posterize on walk land only
+
+## Continuity out
+
+Final frame of the film. No Scene 15.

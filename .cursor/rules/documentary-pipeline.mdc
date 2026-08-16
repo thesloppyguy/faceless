@@ -1,0 +1,16 @@
+---
+description: HITL documentary pipeline — stop on waiting_for_review; Approve/Revise; no auto backward jumps
+alwaysApply: true
+---
+
+# Documentary pipeline rule
+
+When a reel folder has `pipeline.md`, or the user starts a documentary / says **Approve** / **Revise** / next stage:
+
+1. Read and follow `.cursor/skills/documentary-pipeline/SKILL.md`.
+2. If top-level `status` is `waiting_for_review`, **do not** advance stages or implement the next scene/asset unless the user Approves (or gives Revise notes for the active unit).
+3. One active unit per turn: `(current_stage, active_item_id)`. Never chain two stages or two `build-scene` items in one response.
+4. **Backward jumps are manual, not yet supported.** If the user reopens an earlier stage, warn that downstream approved artifacts may be stale, then update `pipeline.md` as they direct.
+5. For the active stage, follow the matching skill under `.cursor/skills/` (`vox-script`, `storyboard`, `scene-prompts`, `asset-pack`, `remotion-setup`, `film-look`, `build-scene`, `sound-mix`).
+6. Do not edit practice-kit folders as part of pipeline work; cite them only.
+7. Old skill names (`vox-script-writer`, `remotion-reel-setup`, beat-sheet-as-skill) are removed — use the new names above.

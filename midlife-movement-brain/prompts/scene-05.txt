@@ -1,0 +1,37 @@
+# Scene 05 — Scored then tested
+
+**Result:** Jump-replace split panels with a heart-health clipboard on the left and four small quiz cards on the right. Three checklist ticks land one by one. Quiz cards fan in stepped arcs labeled `1` `2` `3` `4`. Method beat: measure, then re-measure.
+
+**Duration:** ~4.5s  
+**VO:** They scored midlife heart health, then tested thinking up to four times.  
+**Storyboard beat:** body-3  
+**Starts on:** Scene 04 end, then replace panels with clipboard + cards  
+**Ends on:** clipboard with 3 ticks + cards `1`–`4` fully fanned. Scene 06 clears these.
+
+## Actions (in order)
+
+1. Hold 1 frame on Scene 04 still.
+2. Jump-replace panels/silhouettes/badges with clipboard (left) empty.
+3. Tick 1, tick 2, tick 3 (stepped).
+4. Fan quiz cards `1`→`4` in sequence.
+5. Hold.
+
+## Assets
+
+- `BG-DESK`
+- Clipboard cutout
+- Tick marks
+- Quiz cards `1`–`4`
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `tickIntervalFrames`
+- `cardFanIntervalFrames`
+- `clipboardX` / `cardsX`
+- `cardArcRadius`
+- tick color
+
+## Continuity out
+
+Last frame = desk + clipboard (3 ticks) + four numbered cards.

@@ -1,0 +1,35 @@
+# Scene 03 — San Antonio cohort
+
+**Result:** Jump-replace off heart/brain/calendar. Background becomes `BG-CITY` (flat San Antonio skyline strip). A big `402` cohort stamp lands center with one judder. A thin timeline ribbon steps from midlife dots to later-life dots. Local, grounded, not a travel postcard.
+
+**Duration:** ~4.5s  
+**VO:** A San Antonio team followed four hundred two adults into later life.  
+**Storyboard beat:** body-1  
+**Starts on:** Scene 02 end, then immediate jump-replace to city + clear desk props  
+**Ends on:** `BG-CITY` + centered `402` + complete timeline. Scene 04 snaps back to desk.
+
+## Actions (in order)
+
+1. Snap-cut: remove heart, brain, arrow, calendar; swap to `BG-CITY`.
+2. Stamp `PROP-COHORT` / `402` center; one settle judder.
+3. Step timeline ribbon left→right in 3–4 discrete dots.
+4. Hold.
+
+## Assets
+
+- `BG-CITY` (`bg-city.png`)
+- `PROP-COHORT` / `402` card
+- Timeline ribbon (SVG/drawn)
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `stampFrame`
+- `stampScale` / `stampSettle`
+- `timelineStepFrames`
+- `cityBrightness`
+- type size for `402`
+
+## Continuity out
+
+Last frame = city background + locked `402` + finished timeline.

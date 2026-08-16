@@ -1,0 +1,37 @@
+# Scene 07 — Not the same for every group
+
+**Result:** Match-cut the slope out. Split panels return. Left panel rings `PROP-WALK`; right rings `PROP-GLUCOSE`. A `≠` card stamps between them with judder. Pivot: one study, two patterns.
+
+**Duration:** ~3.5s  
+**VO:** But the strongest link was not the same for every group.  
+**Storyboard beat:** body-5  
+**Starts on:** Scene 06 end still, then panels + rings replace slope  
+**Ends on:** split + lit walk + lit glucose + center `≠`. Scene 08 fills on left panel.
+
+## Actions (in order)
+
+1. Hold Scene 06 still briefly.
+2. Match-cut: remove slope; bring split panels; keep walk and glucose as panel heroes.
+3. Bright ring around walk (left), then glucose (right).
+4. Stamp `≠` center with judder.
+5. Hold.
+
+## Assets
+
+- `BG-DESK`
+- Split panels
+- `PROP-WALK`, `PROP-GLUCOSE`
+- `≠` card
+- Highlight rings
+- Filter: `FILTER-CLINIC`
+
+## Studio sliders
+
+- `ringPulse` (or static brightness)
+- `neqStampFrame` / `neqSettle`
+- `panelDim` for non-hero areas
+- `≠` scale
+
+## Continuity out
+
+Last frame = split desk + walk ring + glucose ring + `≠`.
